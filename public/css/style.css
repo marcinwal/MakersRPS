@@ -1,0 +1,18 @@
+body
+{
+  line-height: 1.6em;
+}
+
+#footer {
+  clear: both;
+  border-top: 1px solid #2A1959;
+  text-align: left; 
+  height: 50px; 
+  font-size: 70%;
+  width: 100%;
+}
+
+
+h1 {
+  color: red;
+}
