@@ -1,18 +1,39 @@
-body
-{
-  line-height: 1.6em;
+html {
+  height: 100%;
+  text-align: center;
+  font-family: fantasy;
+  background: #c5deea; /* Old browsers */
+  background: -moz-linear-gradient(top,  #c5deea 0%, #8abbd7 50%, #066dab 100%); 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c5deea), color-stop(50%,#8abbd7), color-stop(100%,#066dab));
+  background: -webkit-linear-gradient(top,  #c5deea 0%,#8abbd7 50%,#066dab 100%);
+  background: -o-linear-gradient(top,  #c5deea 0%,#8abbd7 50%,#066dab 100%); 
+  background: -ms-linear-gradient(top,  #c5deea 0%,#8abbd7 50%,#066dab 100%); 
+  background: linear-gradient(to bottom,  #c5deea 0%,#8abbd7 50%,#066dab 100%); 
 }
 
-#footer {
-  clear: both;
-  border-top: 1px solid #2A1959;
-  text-align: left; 
-  height: 50px; 
-  font-size: 70%;
+body {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.transform {
+    -ms-transform: scale(2,4); 
+    -webkit-transform: scale(2,4); 
+    transform: scale(2,4);
+}
+
+
+a:link, a:visted{
+    color: (internal value);
+    text-decoration: underline;
+    cursor: auto; 
+}
+
+footer {
+  position: absolute;
   width: 100%;
-}
-
-
-h1 {
-  color: red;
+  height: 80px;
+  bottom: 0;
+  left: 0;
 }

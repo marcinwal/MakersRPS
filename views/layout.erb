@@ -1,14 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
+
   <head>
-    <title>ROCK PAPER SCISSARS GAME!</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Ruby" />
-    <meta name="keywords" content="rubylearning,ruby,ruby programming,ruby course,sinatra course" />
+    <title>ROCK PAPER SCISSORS GAME!</title>
+    <!--<meta name="keywords" content="rubylearning,ruby,ruby programming,ruby course,sinatra course" />-->
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <!--<link rel="icon" type="image/ico" href="/images/favicon.ico" />-->
+    <link rel="icon" type="image/ico" href="/img/favicon.ico" />
   </head>
-  <body>
-    <%= yield %>
+  <body "style=height: 100%">
+    <section style="width: 500px; margin-left: auto; margin-right: auto;">
+        <h1>Rock Paper Scissors Game Play</h1>
+        <%= yield %>
+    </section>
+  <footer>
+    Copyright Marcin Walendzik 2015
+  </footer>  
   </body>
+
 </html>
