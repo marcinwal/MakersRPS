@@ -4,7 +4,7 @@ class Stats
     stat = {}
   end
   def add_result(result)
-    stat[result] +=1 if stat.keys?(result)
-    stat[result] = 1 unless stat.keys?(result)
+    stat[result] +=1 if stat.key?(result)
+    stat[result] = 1 unless stat.key?(result)
   end
 end
