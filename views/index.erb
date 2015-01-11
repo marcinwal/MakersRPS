@@ -2,9 +2,13 @@
 <% if @name==nil %>
   What is your name ?
   <form action="/" method="get">
-  <input type="text" name="name">
+  <input type="text" name="name" class="rounded">
   <input type="submit">
   </form>  
 <% else %>
   Welcome to the game &nbsp <%=@name.capitalize %>
+  <br>
+  <% (1..(@number_of_items)).each do |num| %>
+    <a href="/"><img src="/img/img<%=num%>.jpg" ></a>
+  <% end %> 
 <% end %>

@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/setup.rb'
 
 class RPS < Sinatra::Base
 
@@ -11,14 +12,41 @@ class RPS < Sinatra::Base
   GAME=[:rock,:paper,:scissors]
   PLAYERS=[]
 
+
   def winner(plqyer1,player2)
   end  
 
-  get '/' do
-    @name = params[:name] 
-    session[:name]=@name
+  def init_player(name)
+    
+    player = Player.new(name)
+    player.id_set(player.object_id.to_s)
+    stats = Stats.new
 
-    puts session[:name]
+    session[:name] = name
+    session[:stats] = stats
+
+    return name,stats
+
+  end
+
+  get '/' do
+    @number_of_items = GAME.count
+
+    if (params[:name]!= nil && session[:name]==nil) #1st time registration with name
+      @name = params[:name]
+      session[:name] = @name
+      player = Player.new(@name)
+      player.id_set(player.object_id.to_s)
+      stats = Stats.new
+      session[:stats] = stats
+      PLAYERS << player
+    elsif (session[:name]==nil)
+      @name = nil
+    else    
+      @name = session[:name]
+    end
+      
+    puts session[:name] 
 
     erb :index
   end
