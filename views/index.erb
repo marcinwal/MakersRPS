@@ -1,3 +1,10 @@
-<div>
-I am here.
-</div>  
+  
+<% if @name==nil %>
+  What is your name ?
+  <form action="/" method="get">
+  <input type="text" name="name">
+  <input type="submit">
+  </form>  
+<% else %>
+  Welcome to the game<%=@name %>
+<% end %>

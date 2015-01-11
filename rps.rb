@@ -6,7 +6,20 @@ class RPS < Sinatra::Base
   set :views, 'views'
 
 
+  enable :sessions 
+
+  GAME=[:rock,:paper,:scissors]
+  PLAYERS=[]
+
+  def winner(plqyer1,player2)
+  end  
+
   get '/' do
+    @name = params[:name] 
+    session[:name]=@name
+
+    puts session[:name]
+
     erb :index
   end
 
