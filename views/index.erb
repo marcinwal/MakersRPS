@@ -8,7 +8,12 @@
 <% else %>
   Welcome to the game &nbsp <%=@name.capitalize %>
   <br>
-  <% (1..(@number_of_items)).each do |num| %>
-    <a href="/"><img src="/img/img<%=num%>.jpg" ></a>
-  <% end %> 
+  <form action="/" method="get">
+    <% (1..(@number_of_items)).each do |num| %>
+      <!--<input id="draw" type="image" name="choice" value="<%=num %>" src="/img/img<%=num%>.jpg">-->
+      <!--<button type="submit" name="choice" value="<%=num %>"><img src="/img/img<%=num%>.jpg"/></button>-->
+      <!--<a href="/" name="choice" value="<%=num%>" type="submit"><img src="/img/img<%=num%>.jpg"></a>-->
+      <input class="paper" type="image" name="<%=num%>" src="/img/img<%=num%>.jpg" />
+    <% end %>  
+  </form>
 <% end %>

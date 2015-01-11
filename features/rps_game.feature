@@ -9,3 +9,8 @@ Scenario:
   Given I am on the home page
   When ther is no player yet
   Then I should see "What is your name?"
+
+Scenario:
+  Given I am on the home page
+  When player gave his name
+  Then I should see "Welcome to the game"

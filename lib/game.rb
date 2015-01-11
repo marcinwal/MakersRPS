@@ -20,4 +20,8 @@ class Game
     return 2 if (@rules.key?(sym2) && @rules[sym2]==sym1)
   end
 
+  def random
+    @definitions.sample
+  end
+  
 end

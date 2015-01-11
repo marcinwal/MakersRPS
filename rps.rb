@@ -24,6 +24,7 @@ class RPS < Sinatra::Base
 
     session[:name] = name
     session[:stats] = stats
+    PLAYERS << player
 
     return name,stats
 
@@ -34,12 +35,8 @@ class RPS < Sinatra::Base
 
     if (params[:name]!= nil && session[:name]==nil) #1st time registration with name
       @name = params[:name]
-      session[:name] = @name
+      session[:name],session[:stats] = init_player(@name)
       player = Player.new(@name)
-      player.id_set(player.object_id.to_s)
-      stats = Stats.new
-      session[:stats] = stats
-      PLAYERS << player
     elsif (session[:name]==nil)
       @name = nil
     else    
@@ -47,6 +44,7 @@ class RPS < Sinatra::Base
     end
       
     puts session[:name] 
+    puts session[:choice]
 
     erb :index
   end

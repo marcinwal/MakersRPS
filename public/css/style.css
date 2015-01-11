@@ -45,6 +45,20 @@ img {
   height: 10em;
 }
 
+.paper{
+  width:100%;
+  max-height: 25%;
+  max-width: 25%;
+  height: 10em;  
+}
+/*button{
+  width:25%%;
+  max-height: 25%;
+  max-width: 25%;
+  height: 10em;
+  display: block;
+}
+*/
 input{
   font-family: fantasy;
 }
