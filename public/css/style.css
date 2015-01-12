@@ -28,6 +28,12 @@ body {
   font-size: 1em;
 }
 
+#bigger{
+  color: black;
+  font-size: 1.45em;
+  font-weight: bold;
+}
+
 
 a:link, a:visted{
     color: (internal value);
@@ -84,5 +90,9 @@ input.rounded {
 
 input.rounded:focus {}
     border-color: #339933;
+}
+
+span{
+  font-weight: bolder;
 }
 

@@ -19,9 +19,11 @@
 <% end %>
 <h1 id="winner">
   <% if @result %>
-    You played with &nbsp <%=@player_move %> against <%=@opponent %>
+    You played with &nbsp <%=@player_move %> against <%=@opponent.capitalize %>
     <br>
     The opponent move was &nbsp<%=@opponent_move %>
-    The winner is <%=@winner.capitalize %>
+    The winner is 
+    <br>
+    <span id="bigger"><%=@winner.capitalize %></span>
   <% end %>
 </h1>
