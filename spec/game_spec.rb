@@ -17,11 +17,6 @@ describe Game do
     expect(result).to eq(:paper)
   end
 
-  it 'can be a draw' do 
-    result = game.winner(:paper,:paper)
-    expect(result).to eq("DRAW")
-  end
-
   it 'can return its definitions' do 
     expect(game.return_choice(1)).to eq(:rock)
   end

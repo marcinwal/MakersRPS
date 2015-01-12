@@ -17,8 +17,7 @@ class Game
 
   def winner(sym1,sym2)
     return sym1 if (@rules.key?(sym1) && @rules[sym1].include?(sym2)) #1
-    return sym2 if (@rules.key?(sym2) && @rules[sym2].include?(sym1))    #2
-    return "DRAW"                                                     #0
+    return sym2 
   end
 
   def random
