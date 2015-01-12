@@ -65,7 +65,6 @@ class RPS < Sinatra::Base
        
 
       score=GAME.winner(@player_move,@opponent_move) 
-      puts score
       @winner = score == 1 ? session[:name] : @opponent
       @winner = "DRAW" if score == 0
       @result = true
