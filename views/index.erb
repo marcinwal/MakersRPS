@@ -17,3 +17,11 @@
     <% end %>  
   </form>
 <% end %>
+<h1 id="winner">
+  <% if @result %>
+    You played with &nbsp <%=@player_move %> against <%=@opponent %>
+    <br>
+    The opponent move was &nbsp<%=@opponent_move %>
+    The winner is <%=@winner %>
+  <% end %>
+</h1>

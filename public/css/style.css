@@ -23,6 +23,11 @@ body {
     transform: scale(2,4);
 }
 
+#winner{
+  color: black;
+  font-size: 1em;
+}
+
 
 a:link, a:visted{
     color: (internal value);

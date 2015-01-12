@@ -23,5 +23,9 @@ class Game
   def random
     @definitions.sample
   end
-  
+
+  def return_choice(number)
+    @definitions[number-1]
+  end
+
 end
