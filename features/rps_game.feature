@@ -5,12 +5,31 @@ Feature:
  The winner is announced and his turn is uncovered.
 
 
-Scenario:
-  Given I am on the home page
-  When ther is no player yet
-  Then I should see "What is your name?"
+  Scenario: Inputing the name
+    Given I am on the home page
+    When ther is no player yet
+    Then I should see "What is your name?"
 
-Scenario:
-  Given I am on the home page
-  When player gave his name
-  Then I should see "Welcome to the game"
+  Scenario: Ready for game
+    Given I am on the home page
+    When player gave his name
+    Then I should see "Welcome to the game"
+
+  Scenario: Playing with computer
+   Given I am on the home page
+   When there is only one player
+   Then I should play against computer
+
+  Scenario: Playing with computer and winning
+   Given I am on the home page
+   When I play against computer
+   And player has paper
+   When computer has rock
+   Then I should see "The winner is Computer"
+
+  Scenario: Playing two players
+    Given I am on the home page
+    When there are two players
+    Then I should not play against the computer
+
+    

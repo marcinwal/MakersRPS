@@ -16,7 +16,8 @@ class RPS < Sinatra::Base
               :rock => :scissors,:rock => :lizard,:lizard => :spock, :lizard => :paper,
               :spock => :scissors, :spock => :rock}
   PLAYERS = []
-  GAME = Game.new(GAME_CLASSIC,RULES_CLASSIC)
+  #GAME = Game.new(GAME_CLASSIC,RULES_CLASSIC)
+  GAME = Game.new(GAME_SF,RULES_SF)
 
 
   def init_player(name)
@@ -39,6 +40,7 @@ class RPS < Sinatra::Base
   get '/' do
     @result = false
     @number_of_items = GAME.count_items
+    @number_of_players = PLAYERS.count
 
     if (params[:name]!= nil && session[:name]==nil) #1st time registration with name
       @name = params[:name]
