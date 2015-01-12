@@ -11,10 +11,10 @@ class RPS < Sinatra::Base
 
   GAME_CLASSIC = [:rock,:paper,:scissors]
   GAME_SF = [:rock,:paper,:scissors,:lizard,:spock]
-  RULES_CLASSIC = {:rock => :scissors,:paper => :rock,:scissors => :paper}
-  RULES_SF = {:scissors => :paper,:scissors => :lizard,:paper => :spock, :paper => :rock,
-              :rock => :scissors,:rock => :lizard,:lizard => :spock, :lizard => :paper,
-              :spock => :scissors, :spock => :rock}
+  RULES_CLASSIC = {:rock => [:scissors],:paper => [:rock],:scissors => [:paper]}
+  RULES_SF = {:scissors => [:paper,:lizard],:paper => [:spock,:rock],:rock => [:scissors,:lizard],:lizard=>[:spock,:paper],
+          :spock=>[:scissors,:rock]}
+
   PLAYERS = []
   #GAME = Game.new(GAME_CLASSIC,RULES_CLASSIC)
   GAME = Game.new(GAME_SF,RULES_SF)
@@ -62,8 +62,12 @@ class RPS < Sinatra::Base
         @opponent = (PLAYERS.select{|el| el.id != session[:player].id}.first).name
         @opponent_move = (PLAYERS.select{|el| el.id != session[:player].id}.first).move
       end
-      @winner = GAME.winner(@player_move,@opponent_move) ? session[:name] : @opponent
-      puts @winner
+       
+
+      score=GAME.winner(@player_move,@opponent_move) 
+      puts score
+      @winner = score == 1 ? session[:name] : @opponent
+      @winner = "DRAW" if score == 0
       @result = true
 
     end  
