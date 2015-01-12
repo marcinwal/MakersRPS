@@ -14,12 +14,12 @@ describe Game do
 
   it 'can find a winner' do 
     result = game.winner(:rock,:paper)
-    expect(result).to eq(2)
+    expect(result).to eq(:paper)
   end
 
   it 'can be a draw' do 
     result = game.winner(:paper,:paper)
-    expect(result).to eq(0)
+    expect(result).to eq("DRAW")
   end
 
   it 'can return its definitions' do 

@@ -62,11 +62,9 @@ class RPS < Sinatra::Base
         @opponent = (PLAYERS.select{|el| el.id != session[:player].id}.first).name
         @opponent_move = (PLAYERS.select{|el| el.id != session[:player].id}.first).move
       end
-       
-
       score=GAME.winner(@player_move,@opponent_move) 
-      @winner = score == 1 ? session[:name] : @opponent
-      @winner = "DRAW" if score == 0
+      @winner = score if score == "DRAW"
+      (@winner = score == @player_move ? session[:name] : @opponent) unless score == "DRAW"
       @result = true
 
     end  
