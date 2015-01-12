@@ -1,7 +1,7 @@
 class Game
 
   INIT = [:rock,:paper,:scissors]
-  RULES = {:rock => :scissors,:paper => :rock,:scissors => :paper} #key is winning over the value
+  RULES = {:rock => [:scissors],:paper => [:rock],:scissors => [:paper]} #key is winning over the value
 
   attr_reader :definitions
   attr_reader :rules
