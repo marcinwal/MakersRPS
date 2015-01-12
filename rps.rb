@@ -9,15 +9,11 @@ class RPS < Sinatra::Base
 
   enable :sessions 
 
-  GAME_CLASSIC = [:rock,:paper,:scissors]
-  GAME_SF = [:rock,:paper,:scissors,:lizard,:spock]
-  RULES_CLASSIC = {:rock => [:scissors],:paper => [:rock],:scissors => [:paper]}
-  RULES_SF = {:scissors => [:paper,:lizard],:paper => [:spock,:rock],:rock => [:scissors,:lizard],:lizard=>[:spock,:paper],
-          :spock=>[:scissors,:rock]}
+
 
   PLAYERS = []
-  #GAME = Game.new(GAME_CLASSIC,RULES_CLASSIC)
-  GAME = Game.new(GAME_SF,RULES_SF)
+  GAME = Game.new()
+  #GAME = Game.new(GAME_SF,RULES_SF)
 
 
   def init_player(name)
@@ -55,6 +51,7 @@ class RPS < Sinatra::Base
       @player_move = move
       @computer = GAME.random
       PLAYERS[session[:index]].move = @player_move #saves the move in array
+
       if PLAYERS.count == 1 #playing against computer
         @opponent = "computer"
         @opponent_move = @computer
@@ -62,6 +59,8 @@ class RPS < Sinatra::Base
         @opponent = (PLAYERS.select{|el| el.id != session[:player].id}.first).name
         @opponent_move = (PLAYERS.select{|el| el.id != session[:player].id}.first).move
       end
+
+
       if (@player_move == @opponent_move)
         @winner = "DRAW"
       else  
@@ -70,6 +69,7 @@ class RPS < Sinatra::Base
       end  
       @result = true
     end  
+
     erb :index
   end
   # start the server if ruby file executed directly

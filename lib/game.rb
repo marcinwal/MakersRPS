@@ -3,10 +3,15 @@ class Game
   INIT = [:rock,:paper,:scissors]
   RULES = {:rock => [:scissors],:paper => [:rock],:scissors => [:paper]} #key is winning over the value
 
-  attr_reader :definitions
-  attr_reader :rules
+  GAME_CLASSIC = [:rock,:paper,:scissors]
+  GAME_SF = [:rock,:paper,:scissors,:lizard,:spock]
+  RULES_CLASSIC = {:rock => [:scissors],:paper => [:rock],:scissors => [:paper]}
+  RULES_SF = {:scissors => [:paper,:lizard],:paper => [:spock,:rock],:rock => [:scissors,:lizard],:lizard=>[:spock,:paper],
+          :spock=>[:scissors,:rock]}
 
-  def initialize(init=INIT,rules=RULES)
+  attr_reader :definitions, :rules
+
+  def initialize(init=GAME_SF,rules=RULES_SF)
     @definitions = init
     @rules = rules
   end  
@@ -16,8 +21,10 @@ class Game
   end
 
   def winner(sym1,sym2)
-    return sym1 if (@rules.key?(sym1) && @rules[sym1].include?(sym2)) #1
-    return sym2 
+    # return sym1 if (@rules.key?(sym1) && @rules[sym1].include?(sym2)) #1
+    # return sym2 
+
+    @rules[sym1].include?(sym2) ? sym1 : sym2
   end
 
   def random
