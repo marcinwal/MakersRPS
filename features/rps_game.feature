@@ -24,7 +24,7 @@ Feature:
    Given I am on the home page
    When I play against computer
    And player has paper
-   When computer has rock
+   When computer has a rock
    Then I should see "The winner is Computer"
 
   Scenario: Playing two players
@@ -32,4 +32,3 @@ Feature:
     When there are two players
     Then I should not play against the computer
 
-    

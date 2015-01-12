@@ -30,7 +30,7 @@ When(/^player has paper$/) do
   @player_move == :paper
 end
 
-When(/^computer has rock$/) do
+When(/^computer has a rock$/) do
   @opponent_move == :rock
 end
 

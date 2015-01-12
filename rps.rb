@@ -69,13 +69,9 @@ class RPS < Sinatra::Base
         @winner = score == @player_move ? session[:name] : @opponent
       end  
       @result = true
-
     end  
- 
     erb :index
   end
-
-
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
